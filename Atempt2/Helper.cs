@@ -125,5 +125,33 @@ namespace Atempt2
             }
             return reversedInput;
         }
+
+        public static int[] SortArray(int[] unsortedIntArray)
+        {
+            int[] sortedInts = new int[unsortedIntArray.Length];
+            int tempStorage;
+            for (int i = 0; i < unsortedIntArray.Length; i++)
+            {
+                sortedInts[i] = unsortedIntArray[i];
+            }
+
+            for (int i = 0; i < sortedInts.Length; i++)
+            {
+                for (int j = i + 1; j < sortedInts.Length; j++)
+                {
+                    if (sortedInts[i] > sortedInts[j])
+                    {
+                        //Console.WriteLine(string.Format("i:{0} j:{1} i value: {2} j value: {3}", i, j, randomArray[i], randomArray[j]));
+                        tempStorage = sortedInts[i];
+                        sortedInts[i] = sortedInts[j];
+                        sortedInts[j] = tempStorage;
+                    }
+
+                }
+
+            }
+
+            return sortedInts;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Atempt2
@@ -257,7 +258,23 @@ namespace Atempt2
         {
             string input = Helper.conWriteLineRead("write some numbers separated with a \",\"");
             string[] inputArray = input.Split(",");
-            
+
+            List<int> odds = new List<int>();
+            List<int> evens = new List<int>();
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                Console.WriteLine(inputArray[i]);
+                int currentNumber = Helper.ParseInt(inputArray[i]);
+                if (currentNumber % 2 != 0)
+                {
+                    evens.Add(i);
+                }
+                else
+                {
+                    odds.Add(i);
+                }
+            }
 
         }
     }
