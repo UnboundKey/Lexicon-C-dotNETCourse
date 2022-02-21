@@ -6,7 +6,7 @@ namespace Atempt2
 {
     class Program
     {
-        static string[] programs = { "Exit", "Hello World", "Name and Age repeater", "Change Text Color", "Todays Date", "Compare Numbers", "Number Guessing Game", "Write Message to File", "Read Message from File", "Square root, Power of 2 and 10", "Multiplication Table", "Array Storer", "Palindrome", "Numbers Inbetween", "CSV odds and evens", "CSV Addition" };
+        static string[] programs = { "Exit", "Hello World", "Name and Age repeater", "Change Text Color", "Todays Date", "Compare Numbers", "Number Guessing Game", "Write Message to File", "Read Message from File", "Square root, Power of 2 and 10", "Multiplication Table", "Array Storer", "Palindrome", "Numbers Inbetween", "CSV odds and evens", "CSV Addition", "Fighter Class Instances"};
 
         static string fileName = "WrittenFile";
         static string filePath = Environment.CurrentDirectory + "\\" + fileName;
@@ -74,6 +74,9 @@ namespace Atempt2
                         break;
                     case 15:
                         csvAddition();
+                        break;
+                    case 16:
+                        fighterClassInstances();
                         break;
                     default:
                         Console.WriteLine("The program you are trying to run cannot be found");
@@ -309,6 +312,21 @@ namespace Atempt2
                 total += currentNumber;
             }
             Console.WriteLine("Total: " + total);
+        }
+        private static void fighterClassInstances()
+        {
+            FighterEntity player;
+            FighterEntity enemy;
+
+            string playerName = Helper.conWriteRead("Please Enter a Name for your character: ");
+            player = new FighterEntity(playerName);
+            string enemyName = Helper.conWriteRead("Please Enter a Name for your enemy: ");
+            enemy = new FighterEntity(enemyName);
+            
+
+            player.displayStats();
+            enemy.displayStats();
+
         }
     }
 
