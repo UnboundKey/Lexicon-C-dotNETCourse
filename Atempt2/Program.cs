@@ -6,15 +6,13 @@ namespace Atempt2
 {
     class Program
     {
-        static string[] programs = { "Exit", "Hello World", "Name and Age repeater", "Change Text Color", "Todays Date", "Compare Numbers", "Number Guessing Game", "Write Message to File", "Read Message from File", "Square root, Power of 2 and 10", "Multiplication Table","Array Storer", "Palindrome","Numbers Inbetween", "CSV odds and evens"};
+        static string[] programs = { "Exit", "Hello World", "Name and Age repeater", "Change Text Color", "Todays Date", "Compare Numbers", "Number Guessing Game", "Write Message to File", "Read Message from File", "Square root, Power of 2 and 10", "Multiplication Table", "Array Storer", "Palindrome", "Numbers Inbetween", "CSV odds and evens", "CSV Addition" };
 
         static string fileName = "WrittenFile";
         static string filePath = Environment.CurrentDirectory + "\\" + fileName;
 
         static void Main(string[] args)
-        {
-            
-
+        { 
             while (true)
             {
                 Console.WriteLine("Write a number to pick a program");
@@ -73,6 +71,9 @@ namespace Atempt2
                         break;
                     case 14:
                         csvEvenOrOdd();
+                        break;
+                    case 15:
+                        csvAddition();
                         break;
                     default:
                         Console.WriteLine("The program you are trying to run cannot be found");
@@ -292,6 +293,22 @@ namespace Atempt2
             {
                 Console.WriteLine(item);
             }
+        }
+        private static void csvAddition()
+        {
+            string input = Helper.conWriteLineRead("write some numbers separated with a \",\"");
+            string[] inputArray = input.Split(",");
+            int total = 0;
+
+            // loop through all inputed numbers and add them together
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                //Converting inputed number to int
+                int currentNumber = Helper.ParseInt(inputArray[i]);
+                // Add the number to the running total
+                total += currentNumber;
+            }
+            Console.WriteLine("Total: " + total);
         }
     }
 
