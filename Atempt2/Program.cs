@@ -256,26 +256,42 @@ namespace Atempt2
 
         private static void csvEvenOrOdd()
         {
+            // This function gets input from the user, puts them into odd or even categorys and sorts them in size order, then outputs it to the user.
             string input = Helper.conWriteLineRead("write some numbers separated with a \",\"");
             string[] inputArray = input.Split(",");
 
             List<int> odds = new List<int>();
             List<int> evens = new List<int>();
-
+            // loop through all inputed numbers and add them to the corresponding list of ints for odds or evens
             for (int i = 0; i < inputArray.Length; i++)
             {
-                Console.WriteLine(inputArray[i]);
+                //Console.WriteLine(inputArray[i]);
                 int currentNumber = Helper.ParseInt(inputArray[i]);
-                if (currentNumber % 2 != 0)
+                // If the number can be evenly devided by 2 then put it in the evens list, else put it in the odds.
+                if (currentNumber % 2 == 0)
                 {
-                    evens.Add(i);
+                    evens.Add(currentNumber);
                 }
                 else
                 {
-                    odds.Add(i);
+                    odds.Add(currentNumber);
                 }
             }
+            //sort the list with a helper function.
+            odds = Helper.SortList(odds);
+            evens = Helper.SortList(evens);
 
+            //loop through the lists and output all the numbers
+            Console.WriteLine("-ODDS-");
+            foreach (var item in odds)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("-EVENS-");
+            foreach (var item in evens)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 

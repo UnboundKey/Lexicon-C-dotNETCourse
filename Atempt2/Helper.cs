@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Atempt2
 {
@@ -138,6 +137,34 @@ namespace Atempt2
             for (int i = 0; i < sortedInts.Length; i++)
             {
                 for (int j = i + 1; j < sortedInts.Length; j++)
+                {
+                    if (sortedInts[i] > sortedInts[j])
+                    {
+                        //Console.WriteLine(string.Format("i:{0} j:{1} i value: {2} j value: {3}", i, j, randomArray[i], randomArray[j]));
+                        tempStorage = sortedInts[i];
+                        sortedInts[i] = sortedInts[j];
+                        sortedInts[j] = tempStorage;
+                    }
+
+                }
+
+            }
+
+            return sortedInts;
+        }
+        public static List<int> SortList(List<int> unsortedIntArray)
+        {
+            List<int> sortedInts = new List<int>();
+            int tempStorage;
+            for (int i = 0; i < unsortedIntArray.Count; i++)
+            {
+                //sortedInts[i] = unsortedIntArray[i];
+                sortedInts.Add(unsortedIntArray[i]);
+            }
+
+            for (int i = 0; i < sortedInts.Count; i++)
+            {
+                for (int j = i + 1; j < sortedInts.Count; j++)
                 {
                     if (sortedInts[i] > sortedInts[j])
                     {
